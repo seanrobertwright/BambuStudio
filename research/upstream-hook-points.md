@@ -29,7 +29,8 @@ candidate one-line hooks, written against the 2025-09-15 upstream, rebase
 cleanly onto today's upstream (see [Method](#method) and the combined probe in §3).
 
 The pure-data route is a **user filament preset JSON file** per Filament Profile
-× printer × nozzle, using upstream's own `<filament> @<printer> <nozzle>` naming.
+× printer × nozzle, using upstream's own `<filament> @<printer>[ <nozzle>]`
+naming.
 That route needs no C++ and no slice hook at all.
 
 ## Method
@@ -161,9 +162,11 @@ schema.
   `nozzle_temperature`, `filament_flow_ratio`, `enable_pressure_advance` +
   `pressure_advance`, `filament_max_volumetric_speed`, `filament_shrink`, and
   `filament_retraction_length` (one of `filament_extruder_override_keys`).
-  Upstream already names per-printer filament presets
-  `<filament> @<printer> <nozzle>`; for example
-  `resources/profiles/BBL/filament/` holds `Bambu ABS @BBL P1S 0.4 nozzle.json`.
+  Upstream already names per-printer filament presets `<filament> @<printer>`,
+  sometimes with a nozzle suffix. For example, `resources/profiles/BBL/filament/`
+  holds both `Bambu ABS @BBL P1S 0.4 nozzle.json` and `Bambu ABS @BBL A1.json`;
+  the second covers nozzles through `compatible_printers`. Of the files there
+  with `@` in the name, 1040 end in `nozzle.json` and 827 do not.
   So **a Calibration Record can simply be a user preset**, picked in the plate's
   filament slot like any other preset. That needs no slice hook at all. Hazards
   in `PresetCollection::load_presets`:
