@@ -28,10 +28,14 @@ _Avoid_: tray, bay
 One printed test whose measured or chosen outcome produces one or more Filament Profile values.
 _Avoid_: calibration print, tuning test
 
+**Nozzle Flow Type**:
+The flow variant of a nozzle, such as Standard or High Flow, which changes the values a filament needs at the same nozzle diameter.
+_Avoid_: nozzle volume type, hotend type
+
 **Calibration Sequence**:
-The ordered list of Calibration Tests run to characterise a new Filament Profile on one printer model and nozzle size.
+The ordered list of Calibration Tests run to characterise a new Filament Profile on one printer model, nozzle diameter and Nozzle Flow Type.
 _Avoid_: calibration checklist, tuning plan
 
 **Calibration Record**:
-The values a Filament Profile's Calibration Tests produced on one printer model and nozzle size, applied automatically when slicing for that pair.
+The Filament Profile values that a Filament Profile's Calibration Tests produced on one printer model, nozzle diameter and Nozzle Flow Type, applied automatically when slicing for that combination. It never holds print-process or machine settings.
 _Avoid_: calibration profile, calibration preset
